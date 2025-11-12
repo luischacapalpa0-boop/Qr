@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Las Delicias del Mar</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: linear-gradient(#e6fbff,#f7fbfc); margin:0; }
+    header { background:#0077b6; color:white; padding:18px; text-align:center; }
+    .container { max-width:720px; margin:18px auto; padding:12px; background:white; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+    label { font-weight:600; }
+    select, input, textarea { width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #d7eef8; }
+    button { background:#0096c7; color:white; padding:12px 18px; border:none; border-radius:10px; font-size:16px; cursor:pointer; }
+    footer { text-align:center; padding:10px; color:#555; font-size:13px; }
+    .flex { display:flex; gap:10px; }
+    .col { flex:1; }
+    img.logo { max-width:160px; }
+    .top-note { color:#006080; font-size:14px; margin-bottom:8px; }
+    .links { text-align:center; margin-top:10px; }
+    a.btn-link { background:#00b4d8; color:white; padding:8px 12px; border-radius:8px; text-decoration:none; }
+  </style>
+</head>
+<body>
+<header>
+  <img src="{{ url_for('static', filename='img/logo.png') }}" class="logo" alt="logo"><br>
+  <h1>Las Delicias del Mar</h1>
+  <div style="font-size:14px;">Menú Inteligente por Perfil - Escanea el QR y responde</div>
+</header>
+
+<div class="container">
+  <p class="top-note">Hola 👋, responde estas preguntas para encontrar tu plato ideal.</p>
+  <form action="/recomendacion" method="post">
+    <div class="flex">
+      <div class="col">
+        <label>1️⃣ ¿Qué sabor prefieres hoy?</label>
+        <select name="sabor" required>
+          <option value="picante">Picante</option>
+          <option value="suave">Suave</option>
+          <option value="clásico">Clásico</option>
+          <option value="crocante">Crocante</option>
+          <option value="mixto">Mixto</option>
+        </select>
+      </div>
+      <div class="col">
+        <label>2️⃣ ¿Qué proteína prefieres?</label>
+        <select name="proteina" required>
+          <option value="pescado">Pescado</option>
+          <option value="mariscos">Mariscos</option>
+          <option value="mixto">Mixto</option>
+          <option value="carne">Carne</option>
+          <option value="pollo">Pollo</option>
+        </select>
+    </div>
+    </div>
+    <br>
+    <div class="flex">
+      <div class="col">
+        <label>3️⃣ ¿Qué bebida te gustaría acompañar?</label>
+        <select name="bebida" required>
+          <option value="limonada">Limonada</option>
+          <option value="maracuyá">Maracuyá</option>
+          <option value="gaseosa">Gaseosa</option>
+          <option value="cerveza">Cerveza</option>
+          <option value="pisco">Pisco Sour</option>
+          <option value="whisky">Whisky / Old Times</option>
+          <option value="chicha">Chicha Morada</option>
+        </select>
+      </div>
+      <div class="col">
+        <label>4️⃣ ¿Con quién vienes hoy?</label>
+        <select name="compania" required>
+          <option value="solo">Solo</option>
+          <option value="pareja">Pareja</option>
+          <option value="amigos">Amigos</option>
+          <option value="familia">Familia</option>
+          <option value="niños">Niños</option>
+          <option value="universidad">Universidad</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <div class="flex">
+      <div class="col">
+        <label>5️⃣ ¿Qué momento del día es?</label>
+        <select name="momento" required>
+          <option value="almuerzo">Almuerzo</option>
+          <option value="cena">Cena</option>
+          <option value="tarde">Tarde</option>
+          <option value="noche">Noche</option>
+          <option value="desayuno">Desayuno</option>
+        </select>
+      </div>
+      <div class="col">
+        <label>6️⃣ ¿Cuál es tu presupuesto?</label>
+        <select name="presupuesto" required>
+          <option value="económico">Económico</option>
+          <option value="medio">Medio</option>
+          <option value="premium">Premium</option>
+          <option value="festivo">Festivo</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <button type="submit">🍽️ Ver mi recomendación</button>
+  </form>
+
+  <div class="links">
+    <a class="btn-link" href="/contact">📞 Contacto / Reservas</a>
+  </div>
+</div>
+
+<footer>
+  © Las Delicias del Mar — Menú Inteligente por Perfil
+</footer>
+</body>
+</html>
